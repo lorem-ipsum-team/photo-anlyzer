@@ -1,6 +1,6 @@
 import asyncio
 from pydantic import ValidationError
-from app.config import RABBITMQ_URL, DESCRIPTION_QUEUE_NAME
+from app.internal.config import RABBITMQ_URL, DESCRIPTION_QUEUE_NAME
 from app.internal.model.text import Text
 from app.internal.consumer import text_consumer
 from app.pkg.logging.logger import log_error

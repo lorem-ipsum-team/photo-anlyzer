@@ -1,6 +1,6 @@
 import asyncio
 from pydantic import ValidationError
-from app.config import RABBITMQ_URL, PHOTO_QUEUE_NAME
+from app.internal.config import RABBITMQ_URL, PHOTO_QUEUE_NAME
 from app.internal.model.photo import Photo
 from app.internal.consumer import photo_consumer
 from app.pkg.logging.logger import log_error
