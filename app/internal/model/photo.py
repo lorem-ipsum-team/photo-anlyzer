@@ -1,6 +1,6 @@
-from pydantic import Base64Str, BaseModel
+from pydantic import BaseModel
 
 
 class Photo(BaseModel):
     user_id: str
-    image_base64: str
+    image_url: str
