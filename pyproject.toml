@@ -15,6 +15,29 @@ dependencies = [
     "pydantic>=2.11.3",
     "python-dotenv>=1.1.0",
     "sqlalchemy[asyncio]>=2.0.40",
-    "torch>=2.7.0",
+    "torch==2.6.0",
+    "torchvision==0.21.0",
     "transformers>=4.51.3",
 ]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cpu", marker = "sys_platform == 'linux'" },
+    { index = "pytorch-pypi", marker = "sys_platform != 'linux'" },
+]
+
+torchvision = [
+    { index = "pytorch-cpu", marker = "sys_platform == 'linux'" },
+    { index = "pytorch-pypi", marker = "sys_platform != 'linux'" },
+]
+
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-pypi"
+url = "https://pypi.org/simple"
+explicit = true
