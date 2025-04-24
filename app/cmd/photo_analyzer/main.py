@@ -15,6 +15,8 @@ async def main():
                 await photo_consumer.consume_photo(photo)
             except ValidationError:
                 log_error("JSON Body cannot be processed as photo data")
+            except Exception as e:
+                log_error(str(e))
 
 
 if __name__ == '__main__':

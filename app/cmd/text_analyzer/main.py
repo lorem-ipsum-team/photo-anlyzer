@@ -15,7 +15,8 @@ async def main():
                 await text_consumer.consume_text(text)
             except ValidationError:
                 log_error("JSON Body cannot be processed as text data")
-
+            except Exception as e:
+                log_error(str(e))
 
 if __name__ == '__main__':
     asyncio.run(main())
