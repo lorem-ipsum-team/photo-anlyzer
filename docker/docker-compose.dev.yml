@@ -1,0 +1,75 @@
+services:
+  rabbitmq:
+    image: rabbitmq:4-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
+      RABBITMQ_DEFAULT_VHOST: ${RABBITMQ_VHOST}
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  migration:
+    build:
+      context: ..
+      dockerfile: docker/migration.Dockerfile
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    platform: linux/amd64
+
+  photo_analyzer:
+    build:
+      context: ..
+      dockerfile: docker/photo.Dockerfile
+    depends_on:
+      rabbitmq:
+        condition:
+          service_started
+      postgres:
+        condition:
+          service_started
+      migration:
+        condition:
+          service_completed_successfully
+    environment:
+      RABBITMQ_URL: ${RABBITMQ_URL}
+      PHOTO_QUEUE_NAME: ${PHOTO_QUEUE_NAME}
+      DATABASE_URL: ${DATABASE_URL}
+    platform: linux/amd64
+
+  description_analyzer:
+    build:
+      context: ..
+      dockerfile: docker/text.Dockerfile
+    depends_on:
+      rabbitmq:
+        condition:
+          service_started
+      postgres:
+        condition:
+          service_started
+      migration:
+        condition:
+          service_completed_successfully
+    environment:
+      RABBITMQ_URL: ${RABBITMQ_URL}
+      DESCRIPTION_QUEUE_NAME: ${DESCRIPTION_QUEUE_NAME}
+      DATABASE_URL: ${DATABASE_URL}
+    platform: linux/amd64
+
+volumes:
+  rabbitmq_data:
+  pg_data:
