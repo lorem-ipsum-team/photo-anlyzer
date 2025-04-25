@@ -1,11 +1,11 @@
-FROM python:3.13-alpine
+FROM python:3.13-slim
 WORKDIR /app
 ENV PYTHONPATH=/app
-RUN apk add uv
+RUN pip install uv
 
 COPY pyproject.toml uv.lock ./
 RUN uv venv -p 3.13
-RUN source ./.venv/bin/activate
+RUN . ./.venv/bin/activate
 RUN uv sync --frozen
 
 COPY app ./app
