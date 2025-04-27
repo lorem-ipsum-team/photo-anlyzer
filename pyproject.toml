@@ -2,42 +2,33 @@
 name = "photo-anlyzer"
 version = "0.1.0"
 description = "Service to analyze photos"
-requires-python = ">=3.13"
+requires-python = ">=3.11"
 dependencies = [
     "aio-pika>=9.5.5",
     "aiohttp>=3.11.18",
     "alembic>=1.15.2",
     "asyncpg>=0.30.0",
     "facenet-pytorch>=2.5.3",
-    "nltk>=3.9.1",
-    "numpy>=2.2.5",
     "pillow>=11.2.1",
     "pydantic>=2.11.3",
     "python-dotenv>=1.1.0",
     "sqlalchemy[asyncio]>=2.0.40",
-    "torch==2.6.0",
-    "torchvision==0.21.0",
-    "transformers>=4.51.3",
+    "torch==2.7.0",
+    "torchvision==0.22.0",
+    "tensorflow>=2.16.0; sys_platform != 'darwin'",
+    "tensorflow-macos>=2.16.0; sys_platform == 'darwin'",
+    "tensorflow-hub>=0.16.1",
+    "scikit-learn>=1.6.1",
+    "tensorflow_text==2.16.1; sys_platform != 'darwin'",
+    "tensorflow_text @ https://github.com/sun1638650145/Libraries-and-Extensions-for-TensorFlow-for-Apple-Silicon/releases/download/v2.16/tensorflow_text-2.16.1-cp311-cp311-macosx_11_0_arm64.whl ; sys_platform == 'darwin'",
 ]
 
 [tool.uv.sources]
-torch = [
-    { index = "pytorch-cpu", marker = "sys_platform == 'linux'" },
-    { index = "pytorch-pypi", marker = "sys_platform != 'linux'" },
-]
-
-torchvision = [
-    { index = "pytorch-cpu", marker = "sys_platform == 'linux'" },
-    { index = "pytorch-pypi", marker = "sys_platform != 'linux'" },
-]
+torch = [{ index = "pytorch-cpu" }]
+torchvision = [{ index = "pytorch-cpu" }]
 
 
 [[tool.uv.index]]
 name = "pytorch-cpu"
 url = "https://download.pytorch.org/whl/cpu"
-explicit = true
-
-[[tool.uv.index]]
-name = "pytorch-pypi"
-url = "https://pypi.org/simple"
 explicit = true
