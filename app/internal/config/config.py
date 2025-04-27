@@ -12,3 +12,5 @@ PHOTO_QUEUE_NAME = os.getenv('PHOTO_QUEUE_NAME')
 DESCRIPTION_QUEUE_NAME = os.getenv('DESCRIPTION_QUEUE_NAME')
 
 DATABASE_URL = os.getenv('DATABASE_URL')
+
+USE_MODEL_URL = 'https://tfhub.dev/google/universal-sentence-encoder-multilingual-large/2'

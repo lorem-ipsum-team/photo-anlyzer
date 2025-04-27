@@ -4,7 +4,7 @@ from app.internal.entity.userdata import UserDescription
 from app.internal.model.text import Text
 from app.internal.service.description_repository import DescriptionRepository
 from app.pkg.asyncpg.database import async_session, AsyncSession
-from app.pkg.pytorch.bert.text_processor import TextProcessor
+from app.pkg.tf.universal_sentence_encoder.text_processor import TextProcessor
 
 processor = TextProcessor()
 
