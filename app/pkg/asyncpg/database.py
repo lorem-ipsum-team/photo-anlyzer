@@ -10,7 +10,8 @@ SessionLocal = sessionmaker(
     engine,
     autocommit=False,
     autoflush=False,
-    class_=AsyncSession
+    class_=AsyncSession,
+    plugins=['geoalchemy2']
 )
 
 Base = declarative_base()
