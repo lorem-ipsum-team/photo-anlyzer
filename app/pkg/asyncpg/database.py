@@ -5,13 +5,12 @@ from app.internal.config import DATABASE_URL
 from contextlib import asynccontextmanager
 
 
-engine = create_async_engine(DATABASE_URL, echo=False, future=True)
+engine = create_async_engine(DATABASE_URL, echo=False, future=True, plugins=['geoalchemy2'])
 SessionLocal = sessionmaker(
     engine,
     autocommit=False,
     autoflush=False,
-    class_=AsyncSession,
-    plugins=['geoalchemy2']
+    class_=AsyncSession
 )
 
 Base = declarative_base()

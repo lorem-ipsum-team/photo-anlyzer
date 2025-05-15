@@ -22,6 +22,13 @@ async def consume_photo(photo: Photo):
 
     loop = asyncio.get_event_loop()
     processed = await loop.run_in_executor(None, process_photo, image)
+
+    if processed is None:
+        raise Exception(
+            'Model could not process photo for user',
+            photo.user_id
+        )
+
     photo_data = processed[0].tolist()
 
     async with async_session() as session:
@@ -34,7 +41,7 @@ async def consume_photo(photo: Photo):
         if item is None:
             item = UserPhoto(
                 id=uuid,
-                data=photo_data
+                photo=photo_data
             )
 
             session.add(item)
