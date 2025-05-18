@@ -23,12 +23,12 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build Docker image
         run: |
-          for service in 'photo', 'swipe', 'text', 'user', 'migration'; do
-          docker build -t ghcr.io/${{ github.repository }}-${{ env.service }}:${{ env.BUILD_DATE }}-${{ github.sha }} \
-          -f docker/${{ env.service }}.Dockerfile .
+          for service in 'photo' 'swipe' 'text' 'user' 'migration'; do
+          docker build -t ghcr.io/${{ github.repository }}-$service:${{ env.BUILD_DATE }}-${{ github.sha }} \
+          -f docker/$service.Dockerfile .
           done
       - name: Push Docker image
         run: |
-          for service in 'photo', 'swipe', 'text', 'user', 'migration'; do
-          docker push ghcr.io/${{ github.repository }}-${{ env.service }}:${{ env.BUILD_DATE }}-${{ github.sha }}
+          for service in 'photo' 'swipe' 'text' 'user' 'migration'; do
+          docker push ghcr.io/${{ github.repository }}-$service:${{ env.BUILD_DATE }}-${{ github.sha }}
           done
