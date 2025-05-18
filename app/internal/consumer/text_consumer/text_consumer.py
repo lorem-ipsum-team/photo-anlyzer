@@ -1,4 +1,3 @@
-from uuid import UUID
 import asyncio
 from app.internal.entity.userdata import UserDescription
 from app.internal.model.text import Text
@@ -10,7 +9,7 @@ processor = TextProcessor()
 
 
 def process_text(text: Text):
-    return processor.process_text(text.description)
+    return processor.process_text(text.tags)
 
 
 async def consume_text(text: Text):
@@ -20,7 +19,7 @@ async def consume_text(text: Text):
     async with async_session() as session:
         session: AsyncSession
         descriptions = DescriptionRepository()
-        uuid = UUID(text.user_id)
+        uuid = text.user_id
 
         item = await descriptions.get_by_id(uuid, session)
 
