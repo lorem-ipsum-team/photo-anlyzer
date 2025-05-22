@@ -16,4 +16,4 @@ RUN uv run python ./hooks/*.py
 
 # Copy source and set entrypoint
 COPY app ./app
-CMD ["python", "app/cmd/photo_analyzer/main.py"]
+CMD [".venv/bin/python", "app/cmd/photo_analyzer/main.py"]

@@ -15,4 +15,4 @@ COPY alembic.ini ./
 COPY migrations ./migrations
 
 # Run migrations
-CMD ["python", "-m", "alembic", "upgrade", "head"]
+CMD [".venv/bin/python", "-m", "alembic", "upgrade", "head"]
