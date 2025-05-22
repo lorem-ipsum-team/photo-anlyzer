@@ -16,4 +16,4 @@ RUN uv run python ./hooks/*.py
 
 # Copy source and set entrypoint
 COPY app ./app
-CMD ["uv", "run", "python", "app/cmd/swipe_analyzer/main.py"]
+CMD ["python", "app/cmd/swipe_analyzer/main.py"]

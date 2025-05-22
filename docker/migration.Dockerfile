@@ -15,4 +15,4 @@ COPY alembic.ini ./
 COPY migrations ./migrations
 
 # Run migrations
-CMD ["uv", "run", "alembic", "upgrade", "head"]
+CMD ["python", "-m", "alembic", "upgrade", "head"]
