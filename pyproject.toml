@@ -23,4 +23,5 @@ dependencies = [
     "tensorflow_text @ https://github.com/sun1638650145/Libraries-and-Extensions-for-TensorFlow-for-Apple-Silicon/releases/download/v2.16/tensorflow_text-2.16.1-cp311-cp311-macosx_11_0_arm64.whl ; sys_platform == 'darwin'",
     "pgvector>=0.4.1",
     "geoalchemy2>=0.17.1",
+    "fasttext>=0.9.3",
 ]

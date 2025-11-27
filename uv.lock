@@ -291,6 +291,17 @@ wheels = [
 ]
 
 [[package]]
+name = "fasttext"
+version = "0.9.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy" },
+    { name = "pybind11" },
+    { name = "setuptools" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/9f/3b/9a10b95eaf565358339162848863197c3f0a29b540ca22b2951df2d66a48/fasttext-0.9.3.tar.gz", hash = "sha256:eb03f2ef6340c6ac9e4398a30026f05471da99381b307aafe2f56e4cd26baaef", size = 73439, upload-time = "2024-06-12T09:44:42.544Z" }
+
+[[package]]
 name = "filelock"
 version = "3.18.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1075,6 +1086,7 @@ dependencies = [
     { name = "alembic" },
     { name = "asyncpg" },
     { name = "facenet-pytorch" },
+    { name = "fasttext" },
     { name = "geoalchemy2" },
     { name = "pgvector" },
     { name = "pillow" },
@@ -1098,6 +1110,7 @@ requires-dist = [
     { name = "alembic", specifier = ">=1.15.2" },
     { name = "asyncpg", specifier = ">=0.30.0" },
     { name = "facenet-pytorch", specifier = ">=2.5.3" },
+    { name = "fasttext", specifier = ">=0.9.3" },
     { name = "geoalchemy2", specifier = ">=0.17.1" },
     { name = "pgvector", specifier = ">=0.4.1" },
     { name = "pillow", specifier = ">=11.2.1" },
@@ -1258,6 +1271,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/c8/b8/ea88e9857484a0618c74121618b9e620fc50042de43cdabbebe1b93a83e0/protobuf-4.25.7-cp37-abi3-manylinux2014_aarch64.whl", hash = "sha256:6d2f5dede3d112e573f0e5f9778c0c19d9f9e209727abecae1d39db789f522c6", size = 293717, upload-time = "2025-04-24T02:56:47.427Z" },
     { url = "https://files.pythonhosted.org/packages/a7/81/d0b68e9a9a76804113b6dedc6fffed868b97048bbe6f1bedc675bdb8523c/protobuf-4.25.7-cp37-abi3-manylinux2014_x86_64.whl", hash = "sha256:d41fb7ae72a25fcb79b2d71e4247f0547a02e8185ed51587c22827a87e5736ed", size = 294636, upload-time = "2025-04-24T02:56:48.976Z" },
     { url = "https://files.pythonhosted.org/packages/17/d7/1e7c80cb2ea2880cfe38580dcfbb22b78b746640c9c13fc3337a6967dc4c/protobuf-4.25.7-py3-none-any.whl", hash = "sha256:e9d969f5154eaeab41404def5dcf04e62162178f4b9de98b2d3c1c70f5f84810", size = 156468, upload-time = "2025-04-24T02:56:56.957Z" },
+]
+
+[[package]]
+name = "pybind11"
+version = "3.0.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/2f/7b/a6d8dcb83c457e24a9df1e4d8fd5fb8034d4bbc62f3c324681e8a9ba57c2/pybind11-3.0.1.tar.gz", hash = "sha256:9c0f40056a016da59bab516efb523089139fcc6f2ba7e4930854c61efb932051", size = 546914, upload-time = "2025-08-22T20:09:27.265Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/cd/8a/37362fc2b949d5f733a8b0f2ff51ba423914cabefe69f1d1b6aab710f5fe/pybind11-3.0.1-py3-none-any.whl", hash = "sha256:aa8f0aa6e0a94d3b64adfc38f560f33f15e589be2175e103c0a33c6bce55ee89", size = 293611, upload-time = "2025-08-22T20:09:25.235Z" },
 ]
 
 [[package]]
